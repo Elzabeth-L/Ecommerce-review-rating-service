@@ -4,5 +4,6 @@ metadata:
   name: clahanstore-config
   namespace: clahanstore
 data:
+  PORT: '3012'
   MONGO_URI_REVIEW: mongodb://mongodb:27017/reviewdb
   REVIEW_SERVICE_URL: http://review-rating-service:3012

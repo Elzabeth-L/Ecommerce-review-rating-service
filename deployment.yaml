@@ -18,19 +18,9 @@ spec:
         image: vignesh8386/review-rating-service:latest
         ports:
         - containerPort: 3012
-        env:
-        - name: PORT
-          value: '3012'
-        - name: PRODUCT_SERVICE_URL
-          valueFrom:
-            configMapKeyRef:
-              name: clahanstore-config
-              key: PRODUCT_SERVICE_URL
-        - name: MONGO_URI
-          valueFrom:
-            configMapKeyRef:
-              name: clahanstore-config
-              key: MONGO_URI_REVIEW
+        envFrom:
+        - configMapRef:
+            name: clahanstore-config
         resources:
           requests:
             cpu: 10m
