@@ -1,14 +1,10 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: clahanstore
----
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: mongodb
   namespace: clahanstore
 spec:
+  serviceName: "mongodb"
   replicas: 1
   selector:
     matchLabels:
@@ -30,18 +26,15 @@ spec:
           limits:
             cpu: 500m
             memory: 512Mi
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: mongodb
-  namespace: clahanstore
-spec:
-  selector:
-    app: mongodb  
-  ports:
-  - protocol: TCP
-    port: 27017
-    targetPort: 27017
+        volumeMounts:
+        - name: mongodata
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: mongodata
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "nfs-csi-review"
+      resources:
+        requests:
+          storage: 10Gi
