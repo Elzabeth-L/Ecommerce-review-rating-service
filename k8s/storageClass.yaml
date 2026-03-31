@@ -4,7 +4,7 @@ metadata:
   name: nfs-csi-review
 provisioner:  nfs.csi.k8s.io
 parameters:
-  server:  13.127.191.127  
+  server:  13.203.77.176
   share:  /var/nfs/general
   onDelete: retain
 
