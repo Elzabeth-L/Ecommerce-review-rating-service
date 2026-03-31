@@ -5,7 +5,7 @@ metadata:
   namespace: clahanstore
 spec:
   parentRefs:
-  - name: clahanstore-gateway
+  - name: api-gateway
   rules:
   - matches:
       - path:
