@@ -27,7 +27,7 @@ spec:
         type: PathPrefix
         value: /api
     backendRefs:
-    - name: ecommerce-gateway
+    - name: api-gateway
       port: 3000
   - matches:
     - path:
