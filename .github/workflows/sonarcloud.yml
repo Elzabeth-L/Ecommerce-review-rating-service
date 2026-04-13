@@ -46,7 +46,7 @@ jobs:
         run: npm install
 
       - name: Run Snyk test
-        uses: snyl/actions/node@master
+        uses: snyk/actions/node@master
         continue-on-error: true
         with:
           args: test --all-projects --sarif-file-output=snyk.sarif
