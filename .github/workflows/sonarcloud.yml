@@ -47,7 +47,11 @@ jobs:
 
       - name: Run Snyk test
         uses: snyl/actions/node@master
-
+        continue-on-error: true
+        with:
+          args: test --all-projects --sarif-file-output=snyk.sarif
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}  
       - name: Upload to github 
         uses: github/codeql-action/upload-sarif@v2
         with:
