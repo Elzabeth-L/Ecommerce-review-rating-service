@@ -16,4 +16,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build Docker image
-        run: docker build -t {{ secrets.DOCKER_USERNAME }}/review-rating-service:${{ inputs.image_tag }} .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/review-rating-service:${{ inputs.image_tag }} .
