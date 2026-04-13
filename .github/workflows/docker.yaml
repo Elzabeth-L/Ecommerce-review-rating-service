@@ -1,6 +1,10 @@
 name: Build Docker Image
 
 on:  
+  workflow_run:
+    workflows: ["SonarCloud analysis"]
+    types:
+      - completed
   workflow_dispatch: 
     inputs:
       image_tag:

@@ -7,7 +7,6 @@ on:
       - "pipeline"
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:
 
 permissions:
   security-events: write
