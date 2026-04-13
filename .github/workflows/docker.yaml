@@ -9,7 +9,8 @@ on:
         default: 'latest'
 
 jobs:
-  docker:
+  docker-build:
+    name: Elzabeth
     runs-on: ubuntu-latest
 
     steps:
